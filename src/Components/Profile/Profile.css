@@ -1,0 +1,103 @@
+.edit {
+    font-size: 30px;
+    border: 1px solid #212EA0;
+    margin-top: 10px;
+    border-radius: 8px;
+    color: #4609AC;
+}
+
+.profile-body {
+    display: flex;
+    padding: 20px;
+    background-color: #d9e5ec58;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+}
+
+.profile-image {
+    flex: 1;
+    text-align: center;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+    object-fit: contain;
+    border: 5px solid #00207979;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.767);
+}
+
+.profile-details {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.detail {
+    margin-bottom: 15px;
+}
+
+.detail .pro-icon {
+    color: #506E55;
+}
+
+.detail span {
+    color: #2A3B2D;
+    font-size: 20px;
+}
+
+.detail .name-title {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #000F38;
+    font-weight: 600;
+}
+
+.pro-icon {
+    margin-right: 10px;
+}
+
+.profile-content {
+    margin-top: 20px;
+    border-top: 2px solid #000F38;
+}
+
+.profile-content h3 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: #2A3B2D;
+}
+
+.profile-pro-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.pro-card {
+    flex-basis: calc(50% - 10px); /* Adjust the width to fit two pro-cards per row */
+    background-color: #fff;
+    border-radius: 20px;
+    border: 1px solid #fafafa;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.837);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.pro-card h4 {
+    margin-bottom: 10px;
+    color: #2A3B2D;
+    border-bottom: 1px solid #506E55;
+}
+
+.pro-card p {
+    color: #676767;
+}

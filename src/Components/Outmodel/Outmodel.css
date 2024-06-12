@@ -1,0 +1,78 @@
+.model-background {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00064ae3;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.x-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.x-btn button {
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.model-c {
+    width: 90%;
+    max-width: 650px;
+    height: auto;
+    border: 1px solid white;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.model-background.hide {
+    display: none;
+}
+
+.title h1 {
+    color: rgb(0, 251, 255);
+    font-weight: 600;
+    border-bottom: 1px solid #aaaaaa;
+}
+
+.body p {
+    color: #aaaaaa;
+    margin-bottom: 20px;
+}
+
+.body label {
+    color: #03a9cf;
+}
+
+.body form input, .body form textarea {
+    display: block;
+    width: 100%;
+    background: #dff8f8;
+    color: #4609AC;
+    padding: 15px;
+    border: none;
+    outline: 0;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    resize: none;
+    border-radius: 15px;
+    box-shadow: none;
+}
+
+.contact-col span {
+    display: block;
+    margin: 20px 0;
+}
+
+.footer {
+    float: right;
+}

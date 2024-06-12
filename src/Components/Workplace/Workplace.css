@@ -1,0 +1,162 @@
+.table {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border: 1px solid;
+}
+
+.c-cover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-box {
+    border-bottom: 2px solid #43da25;
+    border-right: 1px solid #43da25;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+    transition: all 1s ease-in-out;
+    cursor: pointer;
+}
+
+.all-check {
+    font-size: 20px;
+    color: #43da25;
+    font-weight: 600;
+}
+
+.c-box:hover {
+    background-color: #ecfce9;
+    transition: all 1s ease-in-out;
+
+    .all-check {
+        color: #25d802;
+        transform: scale(1.2);
+    }
+}
+
+.switch {
+    position: relative;
+    height: 30px;
+    width: 150px;
+    margin: 2px auto;
+    background: #D7D7D7;
+    border-radius: 32px;
+}
+
+.switch-label {
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 50px;
+    line-height: 28px;
+    font-size: 18px;
+    color: #676a6c;
+    text-align: center;
+    cursor: pointer;
+}
+
+.switch-input {
+    display: none;
+}
+
+.switch-input:checked + .switch-label {
+    color: #FFF;
+    transition: 0.15s ease-out;
+    transition-property: color, text-shadow;
+}
+
+.switch-input:checked + .switch-label-y ~ .switch-selector {
+    transform: translateX(0%);
+    background-color: #c23d4a;
+}
+
+.switch-input:checked + .switch-label-i ~ .switch-selector {
+    transform: translateX(100%);
+    background-color: #e2ba49;
+}
+
+.switch-input:checked + .switch-label-n ~ .switch-selector {
+    transform: translateX(200%);
+    background-color: #089a7d;
+}
+
+.switch-selector {
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    display: block;
+    width: 50px;
+    height: 30px;
+    border-radius: 27px;
+    background-color: #1ab394;
+    transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.progress-status {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1ab394;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    height: 5px;
+    background: #d4d4d4;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: #c23d4a;
+    transition: width 0.1s linear;
+}
+
+.progress-message {
+    font-size: 14px;
+}
+
+.delete-confirmation {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.conf-icon {
+    margin-left: 20px;
+    margin-right: 5px;
+}
+
+.conf-i {
+    transform: scale(1.4);
+}
+
+.check-red, .check-green {
+    margin: 0 3px;
+    font-size: 25px;
+}
+
+.check-red {
+    color: #C30303;
+}
+
+.check-green {
+    color: #1ab394;
+}
