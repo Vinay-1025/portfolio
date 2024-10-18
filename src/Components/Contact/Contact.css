@@ -1,74 +1,139 @@
+.line {
+    border-top: 1px solid black;
+}
+
 .contact {
     margin: 80px auto;
     max-width: 90%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-   overflow-y: hidden;
+    overflow-y: hidden;
+    flex-wrap: wrap; /* To ensure better flexibility for smaller screens */
 }
 
 .contact-col {
     flex-basis: 48%;
     color: #2A3B2D;
+    margin-bottom: 20px; /* Spacing for mobile view */
 }
 
 .contact-col h3 {
     color: #2A3B2D;
     font-weight: 500;
-    font-size: 25px;
+    font-size: 20px;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
 .contact-col h3 img {
-    width: 60px;
+    width: 40px; /* Adjusted size for icons */
     margin-left: 10px;
 }
 
 .contact-col p {
     max-width: 450px;
-    list-style: 0.3;
+    font-size: 15px;
+}
+
+.contact-col ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 .contact-col ul li {
     display: flex;
     align-items: center;
     margin: 20px 0;
+    font-size: 16px; /* Ensure font size is legible */
 }
 
-.contact-col ul li img {
-    width: 25px;
-    margin-right: 10px;
+.cont-icon {
+    font-size: 25px;
+    outline: none;
+    margin: 0 20px;
+    color: #212EA0;
+    font-weight: 600;
 }
 
-.contact form input, .contact form textarea {
-    display: block;
-    width: 100%;
-    background: #C6D4C7;
-    padding: 15px;
-    border: 1px solid #274954;
-    outline: 0;
+.contact-col ul li a {
+    color: #CC0303;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 10px;
+    background-color: #fdc6c47b;
+    outline: none;
+    text-decoration: none;
+}
+
+.contact-col ul li a:hover {
+    font-weight: 600;
+    background: #dadeff;
+    color: #212EA0;
+    font-weight: 600;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%; /* Full-width form in mobile view */
+}
+
+.contact form .MuiTextField-root {
     margin-bottom: 15px;
     margin-top: 5px;
-    resize: none;
-    border-radius: 15px;
-    box-shadow: 5px 5px 10px #334938;
 }
 
-.contact-col span {
-    display: block;
-    margin: 20px 0;
+.contact form .MuiTextField-root textarea {
+    resize: none;
+}
+
+.contact form .MuiButton-root {
+    display: flex;
+    align-items: center;
+    background: #4609AC;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 5px 5px;
+    max-width: 100px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px #334938;
+    transition: background 0.3s ease;
+}
+
+.contact form .MuiButton-root:hover {
+    background: #CC0303;
 }
 
 /*---- Media Query ----*/
-
 @media (max-width: 800px) {
     .contact {
         display: block;
+        margin-top: 40px; /* Reduced margin for smaller screens */
     }
 
     .contact-col {
+        flex-basis: 100%;
         padding: 20px;
+        text-align: center; /* Center text for better alignment */
+    }
+
+    .contact form {
+        margin-top: 30px;
+    }
+
+    .contact-col ul li a {
+        font-size: 12px;
+    }
+
+    .contact-col h3 {
+        font-size: 22px; /* Adjusted heading size */
+    }
+
+    .contact-col p {
+        max-width: 100%;
+        font-size: 14px; /* Adjust font size for smaller screens */
     }
 }

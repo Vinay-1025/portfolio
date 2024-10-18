@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Page</title>
+    <style>
+        /* RESUME SECTION */
+        .resume,
+        .portfolio,
+        .blog,
+        .contact {
+            padding: 50px 70px;
+        }
+
+        .resume-row {
+            display: flex;
+        }
+
+        .resume-row .wrapper:nth-child(1) {
+            width: 65%;
+            margin-right: 40px;
+        }
+
+        .resume-row .wrapper :is(.education, .experience) {
+            margin-bottom: 80px;
+        }
+
+        .resume-row h2 {
+            margin-bottom: 20px;
+        }
+
+        .resume-row .grid-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: .5fr 1fr;
+            grid-gap: 0px 50px;
+            margin-bottom: 20px;
+        }
+
+        .resume-row .grid-item .year {
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .resume-row .grid-item .company {
+            text-align: right;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .resume-row .grid-item :is(.education-description, .experience-description) {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: justify;
+        }
+
+        .resume-row .grid-item .divider {
+            position: absolute;
+            top: 0;
+            left: 34.5%;
+            width: 1px;
+            height: calc(100% + 40px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .resume-row .grid-item .divider::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: -3px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 0 2px #FF4500;
+        }
+
+        .resume-row .wrapper:nth-child(2) {
+            width: 35%;
+        }
+
+        .resume-row .design-skill {
+            margin-bottom: 40px;
+        }
+
+        .resume-row .progress-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .resume-row .progress-detail .progress-percent {
+            font-size: 11px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .resume-row .progress-bar {
+            width: 100%;
+            height: 10px;
+            border-radius: 10px;
+            border: 1px solid #FF4500;
+            padding: 2px;
+            margin-bottom: 10px;
+        }
+
+        .resume-row .progress {
+            height: 100%;
+            border-radius: 10px;
+            background: #FF4500;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            
+            .resume-row {
+                flex-direction: column;
+                margin-bottom: 50px;
+            }
+
+            .resume-row .wrapper {
+                width: 100% !important;
+            }
+
+            .resume-row .wrapper:nth-child(1) {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="resume page">
+        <h1 class="section-heading">Resume</h1>
+        <h4 class="section-sub-heading">5 Years of Experience</h4>
+    
+        <div class="resume-row">
+            <div class="wrapper">
+                <div class="education">
+                    <h2>Education</h2>
+                    <div class="grid-item">
+                        <h4 class="year">2019</h4>
+                        <h4 class="education-name">Front End Development</h4>
+                        <p class="company">University of Studies</p>
+                        <p class="education-description">Front-end web developers work on the visual part of the website—the pages visitors see and interact with. They design the layout, integrate graphics, and use HTML, CSS, and JavaScript to enhance the site's user interface. Their goal is to create an appealing and responsive design across various devices and browsers.</p>
+                        <div class="divider"></div>
+                    </div>
+    
+                    <div class="grid-item">
+                        <h4 class="year">2018</h4>
+                        <h4 class="education-name">Graphics Design</h4>
+                        <p class="company">University of Studies</p>
+                        <p class="education-description">Graphic design involves creating visuals—such as typography, images, colors, and shapes—to convey information or messages effectively.</p>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+    
+                <div class="experience">
+                    <h2>Experience</h2>
+                    <div class="grid-item">
+                        <h4 class="year">2022 - Current</h4>
+                        <h4 class="experience-name">Lead Software Engineer</h4>
+                        <p class="company">Google</p>
+                        <p class="experience-description">I lead the entire development team toward creating a successful product. I encourage a collaborative work environment where everyone knows each other's progress.</p>
+                        <div class="divider"></div>
+                    </div>
+    
+                    <div class="grid-item">
+                        <h4 class="year">2018 - 2022</h4>
+                        <h4 class="experience-name">Senior Software Engineer</h4>
+                        <p class="company">Facebook</p>
+                        <p class="experience-description">I can design complex software systems. My decisions impact scalability, maintainability, and overall system architecture. I also mentor less experienced team members, helping them grow and learn.</p>
+                        <div class="divider"></div>
+                    </div>
+    
+                    <div class="grid-item">
+                        <h4 class="year">2012 - 2018</h4>
+                        <h4 class="experience-name">Junior Software Engineer</h4>
+                        <p class="company">Amazon</p>
+                        <p class="experience-description">I learned to code in an existing codebase, dive into the project, understand its structure, and become comfortable with the code. I worked closely with senior software engineers who guided me, answered my questions, and helped me grow.</p>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="wrapper">
+                <div class="design-skill">
+                    <h2>Design Skills</h2>
+    
+                    <div class="progress-detail">
+                        <div class="progress-name">Web Design</div>
+                        <div class="progress-percent">95%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 95%;"></div>
+                    </div>
+    
+                    <div class="progress-detail">
+                        <div class="progress-name">Print Design</div>
+                        <div class="progress-percent">65%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 65%;"></div>
+                    </div>
+    
+                    <div class="progress-detail">
+                        <div class="progress-name">Logo Design</div>
+                        <div class="progress-percent">80%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+    
+                    <div class="progress-detail">
+                        <div class="progress-name">Graphics Design</div>
+                        <div class="progress-percent">90%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+    
+                <div class="coding-skill">
+                    <h2>Coding Skills</h2>
+    
+                    <div class="progress-detail">
+                        <div class="progress-name">JavaScript</div>
+                        <div class="progress-percent">90%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+    
+                    <div class="progress-detail">
+                        <div class="progress-name">MongoDB</div>
+                        <div class="progress-percent">70%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%;"></div>
+                    </div>
+    
+                    <div class="progress-detail">
+                        <div class="progress-name">Python</div>
+                        <div class="progress-percent">60%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+    
+                    <div class="progress-detail">
+                        <div class="progress-name">React/Redux</div>
+                        <div class="progress-percent">50%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 50%;"></div>
+                    </div>
+    
+                    <div class="progress-detail">
+                        <div class="progress-name">HTML/CSS</div>
+                        <div class="progress-percent">100%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

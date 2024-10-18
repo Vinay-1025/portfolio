@@ -1,6 +1,6 @@
 import React from 'react';
 import './ContentHeader.css';
-import { BiSearch, BiNotification, BiSolidUserDetail } from 'react-icons/bi'; // Corrected import
+import { BiSearch, BiNotification, BiSolidUserDetail, BiSun, BiMoon, BiDetail, BiCommentDetail, BiBulb, BiNetworkChart, BiCertification, BiMailSend, BiAward, BiSolidAward, BiSolidNetworkChart, BiSolidBulb, BiSolidWidget, BiSolidMoon, BiSolidSun } from 'react-icons/bi'; // Corrected import
 import { NavLink } from 'react-router-dom';
 
 const ContentHeader = ({title}) => {
@@ -8,16 +8,20 @@ const ContentHeader = ({title}) => {
         <div className="content-header">
             <h1 className="header-title">{title}</h1>
             <div className="header-activity">
-                <div className="search-box">
-                    <input type="text" placeholder="Search here...." />
-                    <BiSearch className="icon" />
-                </div>
-                <div className="notify">
-                    <BiNotification className="icon" />
-                </div>
-                <NavLink to='/menu/profile' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
-                    <BiSolidUserDetail className="icon" />
+                
+                <NavLink to='/menu/dashboard' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
+                    <BiNetworkChart className="icon" />
                 </NavLink>
+                <NavLink to='/menu/adminstration' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
+                    <BiSolidWidget className="icon" />
+                </NavLink>
+                <NavLink to='/menu/security' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
+                    <BiSolidAward className="icon" />
+                </NavLink>
+                <NavLink to='/menu/queries' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
+                    <BiMailSend className="icon" />
+                </NavLink>
+                    
             </div>
         </div>
     );

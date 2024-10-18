@@ -6,7 +6,7 @@
 
 body {
   background: #D9E5EC;
-  padding: 20px;
+  padding: 0;
 }
 
 .butn {
@@ -16,7 +16,6 @@ body {
   font-size: 15px;
   border-radius: 30px;
   cursor: pointer;
-  border: 0;
   outline: 0;
   display: inline-flex;
   align-items: center;
@@ -28,7 +27,7 @@ body {
 .butn:hover {
   background: #fff;
   color: #4609AC;
-  box-shadow: 0 0 20px #333;
+  box-shadow: 2px 2px 9px #042766;
   transition: 1s smooth;
 }
 
@@ -42,22 +41,38 @@ body {
   background: #759279;
   color: #042766;
   font-weight: 600;
+  width: 40%;
 }
 
 .fixed-scroll {
   position: absolute;
   top: 0;
-  left: 200px;
+  left: 0;
   right: 0;
   bottom: 0;
   overflow-y: auto;
-  padding: 20px;
+  padding: 10px 50px;
   background: #f8f9fa;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
+.icon-bot {
+  margin-left: 5px;
+  font-size: 18px;
+  color: #042766;
+}
 
 @media (max-width: 1200px) {
   .fixed-scroll {
-      left: 60px; /* Adjust based on the icons-only sidebar width */
+      left: 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .fixed-scroll {
+    padding: 10px;
+    overflow-y: scroll;
+    padding-bottom: 100%;
   }
 }

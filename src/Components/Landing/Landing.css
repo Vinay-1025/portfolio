@@ -1,0 +1,157 @@
+/* Container adjustments for mobile view */
+.loader-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background video responsive adjustments */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Black with 60% opacity */
+    z-index: 2;
+}
+
+/* Adjust ring loader for responsiveness */
+.multi-ring-loader {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3; /* Ensures it's above the video */
+    animation: loaderFadeIn 1s ease-in-out;
+}
+
+/* Different sizes for mobile view */
+@media (max-width: 768px) {
+    .multi-ring-loader {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .multi-ring-loader {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* Animated rotating rings */
+.ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 5px solid transparent;
+    border-radius: 50%;
+    animation: rotate 2s linear infinite;
+}
+
+.ring:nth-child(1) {
+    border-top-color: #ff3f3f;
+    border-right-color: #ff3f3f;
+    animation-duration: 3s;
+}
+
+.ring:nth-child(2) {
+    border-left-color: #ff9f1c;
+    border-bottom-color: #ff9f1c;
+    animation-duration: 2.5s;
+    animation-delay: -0.3s;
+}
+
+.ring:nth-child(3) {
+    border-top-color: #2ec4b6;
+    border-right-color: #2ec4b6;
+    animation-duration: 2s;
+    animation-delay: -0.6s;
+}
+
+.ring:nth-child(4) {
+    border-left-color: #3a86ff;
+    border-bottom-color: #3a86ff;
+    animation-duration: 1.8s;
+    animation-delay: -0.9s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Fade-in animation for the entire loader */
+@keyframes loaderFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive welcome text */
+.welcome-text {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 30px;
+    letter-spacing: 2px;
+    animation: textFadeIn 2.5s ease-in-out infinite;
+    z-index: 3; /* Ensures it's above the video */
+}
+
+@media (max-width: 768px) {
+    .welcome-text {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-text {
+        font-size: 16px;
+    }
+}
+
+/* Glowing and pulsing text effect */
+@keyframes textFadeIn {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+    }
+}
