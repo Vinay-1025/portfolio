@@ -4,11 +4,6 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-body {
-  background: #D9E5EC;
-  padding: 0;
-}
-
 .butn {
   background: #fff;
   color: #4609AC;
@@ -52,7 +47,6 @@ body {
   bottom: 0;
   overflow-y: auto;
   padding: 10px 50px;
-  background: #f8f9fa;
   overflow-y: scroll;
   scrollbar-width: none;
 }
