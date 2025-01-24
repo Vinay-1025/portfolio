@@ -12,13 +12,13 @@ const ContentHeader = ({title}) => {
                 <NavLink to='/menu/dashboard' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
                     <BiNetworkChart className="icon" />
                 </NavLink>
-                <NavLink to='/menu/adminstration' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
+                <NavLink to='/menu/projects' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
                     <BiSolidWidget className="icon" />
                 </NavLink>
-                <NavLink to='/menu/security' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
+                <NavLink to='/menu/certifications' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
                     <BiSolidAward className="icon" />
                 </NavLink>
-                <NavLink to='/menu/queries' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
+                <NavLink to='/menu/contact' end className={({ isActive }) => isActive ? 'notify active' : 'notify'}>
                     <BiMailSend className="icon" />
                 </NavLink>
                     

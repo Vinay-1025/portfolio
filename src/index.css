@@ -67,6 +67,5 @@
   .fixed-scroll {
     padding: 10px;
     overflow-y: scroll;
-    padding-bottom: 100%;
   }
 }

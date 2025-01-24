@@ -50,26 +50,7 @@
     margin-bottom: 10px;
 }
 
-/* Media Queries for responsiveness */
-@media (max-width: 1024px) {
-    .timeline-card {
-        flex: 1 1 45%;
-    }
-}
 
-@media (max-width: 700px) {
-    .tab-names {
-        display: none; /* Hide tabs by default on mobile */
-    }
-
-    .mobile-tabs {
-        display: block;
-    }
-
-    .menu-and-share {
-        justify-content: space-between;
-    }
-}
 
 h3 {
     color: #cc0303;
@@ -85,16 +66,6 @@ h3 {
     margin-bottom: 20px;
     padding-bottom: 30px;
     border-bottom: 3px solid #212EA0;
-}
-
-@media screen and (max-width: 550px) {
-    h3 {
-        font-size: 18px;
-    }
-
-    .proj-desc {
-        font-size: 12px;
-    }
 }
 
 .img-desc-cover {
@@ -127,4 +98,109 @@ h3 {
 
 .up-p:hover {
     transform: scale(1.2);
+}
+
+.modal-content {
+    position: relative;
+    text-align: center;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #212ea06f;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 40px;
+    border-radius: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: #212EA0;
+}
+
+.close-icon {
+    background: #0000009b;
+    color: #fff;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 8px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1024px) {
+    .timeline-card {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 700px) {
+    .tab-names {
+        display: none; /* Hide tabs by default on mobile */
+    }
+
+    .mobile-tabs {
+        display: block;
+    }
+
+    .menu-and-share {
+        justify-content: space-between;
+    }
+
+    .prev-btn, .next-btn {
+        font-size: 25px;
+        padding: 8px;
+    }
+
+    .close-icon {
+        font-size: 20px;
+        padding: 6px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    h3 {
+        font-size: 18px;
+    }
+
+    .proj-desc {
+        font-size: 12px;
+    }
+
+    .prev-btn, .next-btn {
+        font-size: 18px;
+        padding: 6px;
+    }
+
+    .prev-btn {
+        left: 5px;
+    }
+    
+    .next-btn {
+        right: 5px;
+    }
+
+    .close-icon {
+        font-size: 15px;
+        padding: 5px;
+    }
 }

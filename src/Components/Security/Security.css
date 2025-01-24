@@ -35,22 +35,7 @@
     object-fit: fill;
 }
 
-/* Responsive Design for Mobile */
-@media (max-width: 980px) {
-    .card {
-        width: 45%; /* 2 cards per row on medium screens */
-    }
-}
 
-@media (max-width: 700px) {
-    .certificate-container {
-        padding: 40px;
-    }
-
-    .card {
-        width: 100%; /* Full width on small screens */
-    }
-}
 
 /* Modal overlay for enlarged image */
 .modal-overlay {
@@ -105,6 +90,56 @@
     }
 }
 
+
+
+/* Navigation arrows for modal */
+.arrow-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 1002;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-arrow {
+    left: 20px;
+}
+
+.right-arrow {
+    right: 20px;
+}
+
+.arrow-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Responsive Design for Mobile */
+@media (max-width: 980px) {
+    .card {
+        width: 45%; /* 2 cards per row on medium screens */
+    }
+}
+
+@media (max-width: 700px) {
+    .certificate-container {
+        padding: 40px;
+    }
+
+    .card {
+        width: 100%; /* Full width on small screens */
+    }
+}
+
 /* Mobile View - Modal Image */
 @media (max-width: 500px) {
     .modal-content {
@@ -122,5 +157,10 @@
         top: 5px;
         right: 10px;
         font-size: 25px;
+    }
+
+    .arrow-icon {
+        font-size: 20px;
+        padding: 5px;
     }
 }

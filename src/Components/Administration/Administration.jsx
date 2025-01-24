@@ -7,7 +7,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { BiBlock, BiMenu, BiX } from 'react-icons/bi';
+import { BiBlock, BiCaretLeft, BiCaretLeftCircle, BiCaretRightCircle, BiExitFullscreen, BiMenu, BiX, BiXCircle } from 'react-icons/bi';
 import ContentHeader from '../ContentHeader/ContentHeader';
 
 import P1I1 from '../../assets/project/P1I1.png';
@@ -217,46 +217,73 @@ const P6 = [
 
 const Administration = () => {
     const navigate = useNavigate();
-    const [value, setValue] = React.useState(0);
-    const [showTabs, setShowTabs] = React.useState(true); // Tabs visible by default
+    const [value, setValue] = React.useState(0); // Active tab index
+    const [showTabs, setShowTabs] = React.useState(true);
     const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 700);
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null); // Selected image index
+    const [currentImages, setCurrentImages] = useState(P1); // Current image array
 
-    const handleCardClick = (image) => {
-        setSelectedImage(image);
+    // Update the selected image index and current image array
+    const handleCardClick = (index) => {
+        setSelectedImageIndex(index);
     };
 
+    // Close modal
     const closeModal = () => {
-        setSelectedImage(null);
+        setSelectedImageIndex(null);
     };
 
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-
-        // Automatically hide tabs on mobile after selection
-        if (isMobile) {
-            setShowTabs(false);
+    // Show next image with circular rotation
+    const handleNextImage = () => {
+        if (selectedImageIndex !== null) {
+            setSelectedImageIndex((prevIndex) => (prevIndex + 1) % currentImages.length);
         }
     };
 
-    const handleShareIdeaClick = () => {
-        navigate('/menu/queries');
+    // Show previous image with circular rotation
+    const handlePrevImage = () => {
+        if (selectedImageIndex !== null) {
+            setSelectedImageIndex((prevIndex) => (prevIndex - 1 + currentImages.length) % currentImages.length);
+        }
     };
 
-    const toggleTabs = () => {
-        setShowTabs(!showTabs); // Toggle the tabs visibility
+    // Update tab value and current image array on tab change
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+        if (isMobile) setShowTabs(false);
+
+        // Update currentImages based on the active tab
+        switch (newValue) {
+            case 0:
+                setCurrentImages(P1);
+                break;
+            case 1:
+                setCurrentImages(P2);
+                break;
+            case 2:
+                setCurrentImages(P3);
+                break;
+            case 3:
+                setCurrentImages(P4);
+                break;
+            case 4:
+                setCurrentImages(P5);
+                break;
+            default:
+                setCurrentImages([]);
+                break;
+        }
     };
 
-    // Handle window resize to update mobile view
+    // Handle window resize for responsive tabs
     React.useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth <= 700) {
                 setIsMobile(true);
-                setShowTabs(false); // Hide tabs on mobile
+                setShowTabs(false);
             } else {
                 setIsMobile(false);
-                setShowTabs(true); // Show tabs on larger screens
+                setShowTabs(true);
             }
         };
 
@@ -272,10 +299,8 @@ const Administration = () => {
             <Box sx={{ width: '100%', borderTop: '1px solid' }}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider', position: 'relative' }}>
                     <div className="menu-and-share">
-                        {isMobile && (
-                            <BiMenu className="menu-icon" onClick={toggleTabs} />
-                        )}
-                        <Button className="share-btn" onClick={handleShareIdeaClick}>
+                        {isMobile && <BiMenu className="menu-icon" onClick={() => setShowTabs(!showTabs)} />}
+                        <Button className="share-btn" onClick={() => navigate('/menu/queries')}>
                             Connect With Me
                         </Button>
                     </div>
@@ -283,27 +308,27 @@ const Administration = () => {
                         <Tabs
                             value={value}
                             onChange={handleChange}
-                            aria-label="basic tabs example"
+                            aria-label="Project Tabs"
                             TabIndicatorProps={{ style: { backgroundColor: '#CC0303' } }}
                             className={`tab-names ${isMobile ? 'mobile-tabs' : ''}`}
                             orientation={isMobile ? 'vertical' : 'horizontal'}
                         >
                             <Tab label="DLMS" {...a11yProps(0)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
-                            <Tab label="OOLS" {...a11yProps(1)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
-                            <Tab label="Electrove" {...a11yProps(2)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
-                            <Tab label="ServiceTrack" {...a11yProps(3)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
-                            <Tab label="Scrabble" {...a11yProps(4)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
-                            <Tab label="SMB" {...a11yProps(5)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
-                            <Tab label="TruckOlimit" {...a11yProps(6)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
-                            <Tab label="UCG" {...a11yProps(7)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
-                            <Tab label="ExpanTrack" {...a11yProps(8)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
-                            <Tab label="AgriConnect" {...a11yProps(9)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
-                            <Tab label="Share Idea" {...a11yProps(10)} sx={{ display: 'none' }} />
+                            <Tab label="OOLS" {...a11yProps(0)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
+                            <Tab label="Electrove" {...a11yProps(0)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
+                            <Tab label="ServiceTrack" {...a11yProps(0)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
+                            <Tab label="Scrabble" {...a11yProps(0)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
+                            <Tab label="SMB" {...a11yProps(0)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
+                            <Tab label="TruckOLimit" {...a11yProps(0)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
+                            <Tab label="U Can-Grow" {...a11yProps(0)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
+                            <Tab label="ExpanTrack" {...a11yProps(0)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
+                            <Tab label="AgriConnect" {...a11yProps(0)} sx={{ '&.Mui-selected': { color: '#CC0303' } }} />
+                            {/* Other Tabs */}
+
                         </Tabs>
                     )}
                 </Box>
 
-                {/* Project Description and Technologies Timeline */}
                 <CustomTabPanel value={value} index={0}>
                     <h3>{projectDescriptions[0].name}</h3>
                     <p className="proj-desc">{projectDescriptions[0].description}
@@ -311,289 +336,193 @@ const Administration = () => {
                     <p className='workstat'><span className='edu-percent'>Contributors :</span> <span className='work-style'>Mohan Patro</span> <span className='work-style'>Venkatesh Ganisetti</span> <span className='work-style'>Kimidi Prasanthi</span> </p>
                     </p>
                     <div className="card-container">
-                        {/* Map through the global imageData array */}
                         {P1.map((item, index) => (
-                            <div key={index} className="card" onClick={() => handleCardClick(item.image)}>
-                                <div className="container mt-3">
-                                    <img src={item.image} className="service-img card-img-top" alt={`Service ${index + 1}`} />
-                                </div>
+                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                                <img src={item.image} alt={`Service ${index + 1}`} className="service-img card-img-top" />
                                 <div className="img-desc-cover">
-                                    <p className='img-desc-p'>{item.desc}</p>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
-
-                    {/* Modal to show enlarged image */}
-                    {selectedImage && (
-                        <div className="modal-overlay" onClick={closeModal}>
-                            <div className="modal-content">
-                                <span className="close-icon" onClick={closeModal}> <BiX /> </span>
-                                <img src={selectedImage} alt="Selected" className="modal-image" />
-                            </div>
-                        </div>
-                    )}
-
                 </CustomTabPanel>
+
                 <CustomTabPanel value={value} index={1}>
                     <h3>{projectDescriptions[1].name}</h3>
                     <p className="proj-desc">{projectDescriptions[1].description}
                     <p className='workstat'><span className='edu-percent'>TechStack :</span> <span className='work-style'>HTML</span> <span className='work-style'>CSS</span> <span className='work-style'>JS</span> <span className='work-style'>Bootstrap</span> <span className='work-style'>reactJs</span> <span className='work-style'>material Ui</span> </p>
                     </p>
                     <div className="card-container">
-                        {/* Map through the global imageData array */}
                         {P2.map((item, index) => (
-                            <div key={index} className="card" onClick={() => handleCardClick(item.image)}>
-                                <div className="container mt-3">
-                                    <img src={item.image} className="service-img card-img-top" alt={`Service ${index + 1}`} />
-                                </div>
+                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                                <img src={item.image} alt={`Service ${index + 1}`} className="service-img card-img-top" />
                                 <div className="img-desc-cover">
-                                    <p className='img-desc-p'>{item.desc}</p>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
-
-                    {/* Modal to show enlarged image */}
-                    {selectedImage && (
-                        <div className="modal-overlay" onClick={closeModal}>
-                            <div className="modal-content">
-                                <span className="close-icon" onClick={closeModal}> <BiX /> </span>
-                                <img src={selectedImage} alt="Selected" className="modal-image" />
-                            </div>
-                        </div>
-                    )}
                 </CustomTabPanel>
+
                 <CustomTabPanel value={value} index={2}>
                     <h3>{projectDescriptions[2].name}</h3>
                     <p className="proj-desc">{projectDescriptions[2].description}
                     <p className='workstat'><span className='edu-percent'>TechStack :</span> <span className='work-style'>HTML</span> <span className='work-style'>CSS</span> <span className='work-style'>JS</span> <span className='work-style'>Bootstrap</span> </p>
                     </p>
                     <div className="card-container">
-                        {/* Map through the global imageData array */}
                         {P3.map((item, index) => (
-                            <div key={index} className="card" onClick={() => handleCardClick(item.image)}>
-                                <div className="container mt-3">
-                                    <img src={item.image} className="service-img card-img-top" alt={`Service ${index + 1}`} />
-                                </div>
+                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                                <img src={item.image} alt={`Service ${index + 1}`} className="service-img card-img-top" />
                                 <div className="img-desc-cover">
-                                    <p className='img-desc-p'>{item.desc}</p>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
-
-                    {/* Modal to show enlarged image */}
-                    {selectedImage && (
-                        <div className="modal-overlay" onClick={closeModal}>
-                            <div className="modal-content">
-                                <span className="close-icon" onClick={closeModal}> <BiX /> </span>
-                                <img src={selectedImage} alt="Selected" className="modal-image" />
-                            </div>
-                        </div>
-                    )}
                 </CustomTabPanel>
+
                 <CustomTabPanel value={value} index={3}>
                     <h3>{projectDescriptions[3].name}</h3>
                     <p className="proj-desc">{projectDescriptions[3].description}
                     <p className='workstat'><span className='edu-percent'>TechStack :</span> <span className='work-style'>HTML</span> <span className='work-style'>CSS</span> <span className='work-style'>JS</span> <span className='work-style'>Bootstrap</span> </p>
                     </p>
                     <div className="card-container">
-                        {/* Map through the global imageData array */}
                         {P4.map((item, index) => (
-                            <div key={index} className="card" onClick={() => handleCardClick(item.image)}>
-                                <div className="container mt-3">
-                                    <img src={item.image} className="service-img card-img-top" alt={`Service ${index + 1}`} />
-                                </div>
+                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                                <img src={item.image} alt={`Service ${index + 1}`} className="service-img card-img-top" />
                                 <div className="img-desc-cover">
-                                    <p className='img-desc-p'>{item.desc}</p>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
-
-                    {/* Modal to show enlarged image */}
-                    {selectedImage && (
-                        <div className="modal-overlay" onClick={closeModal}>
-                            <div className="modal-content">
-                                <span className="close-icon" onClick={closeModal}> <BiX /> </span>
-                                <img src={selectedImage} alt="Selected" className="modal-image" />
-                            </div>
-                        </div>
-                    )}
                 </CustomTabPanel>
+
                 <CustomTabPanel value={value} index={4}>
                     <h3>{projectDescriptions[4].name}</h3>
                     <p className="proj-desc">{projectDescriptions[4].description}
                     <p className='workstat'><span className='edu-percent'>TechStack :</span> <span className='work-style'>HTML</span> <span className='work-style'>CSS</span> <span className='work-style'>JS</span> <span className='work-style'>Bootstrap</span> </p>
                     </p>
                     <div className="card-container">
-                        {/* Map through the global imageData array */}
                         {P5.map((item, index) => (
-                            <div key={index} className="card" onClick={() => handleCardClick(item.image)}>
-                                <div className="container mt-3">
-                                    <img src={item.image} className="service-img card-img-top" alt={`Service ${index + 1}`} />
-                                </div>
+                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                                <img src={item.image} alt={`Service ${index + 1}`} className="service-img card-img-top" />
                                 <div className="img-desc-cover">
-                                    <p className='img-desc-p'>{item.desc}</p>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
-
-                    {/* Modal to show enlarged image */}
-                    {selectedImage && (
-                        <div className="modal-overlay" onClick={closeModal}>
-                            <div className="modal-content">
-                                <span className="close-icon" onClick={closeModal}> <BiX /> </span>
-                                <img src={selectedImage} alt="Selected" className="modal-image" />
-                            </div>
-                        </div>
-                    )}
                 </CustomTabPanel>
+
                 <CustomTabPanel value={value} index={5}>
                     <h3>{projectDescriptions[5].name}</h3>
-                    <p className="proj-desc">{projectDescriptions[4].description}
+                    <p className="proj-desc">{projectDescriptions[5].description}
                     <p className='workstat'><span className='edu-percent'>TechStack :</span> <span className='work-style'>HTML</span> <span className='work-style'>CSS</span> <span className='work-style'>JS</span> <span className='work-style'>Bootstrap</span> </p>
                     </p>
                     <div className="card-container">
-                        {/* Map through the global imageData array */}
                         {P6.map((item, index) => (
-                            <div key={index} className="card" onClick={() => handleCardClick(item.image)}>
-                                <div className="container mt-3">
-                                    <img src={item.image} className="service-img card-img-top" alt={`Service ${index + 1}`} />
-                                </div>
+                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                                <img src={item.image} alt={`Service ${index + 1}`} className="service-img card-img-top" />
                                 <div className="img-desc-cover">
-                                    <p className='img-desc-p'>{item.desc}</p>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
-
-                    {/* Modal to show enlarged image */}
-                    {selectedImage && (
-                        <div className="modal-overlay" onClick={closeModal}>
-                            <div className="modal-content">
-                                <span className="close-icon" onClick={closeModal}> <BiX /> </span>
-                                <img src={selectedImage} alt="Selected" className="modal-image" />
-                            </div>
-                        </div>
-                    )}
                 </CustomTabPanel>
+
                 <CustomTabPanel value={value} index={6}>
                     <h3>{projectDescriptions[6].name}</h3>
                     <p className="proj-desc">{projectDescriptions[6].description}
                     <p className='workstat'><span className='edu-percent'>TechStack :</span> <span className='work-style'>HTML</span> <span className='work-style'>CSS</span> <span className='work-style'>JS</span> <span className='work-style'>Bootstrap</span> <span className='work-style'>reactjs</span> <span className='work-style'>material ui</span> </p>
                     </p>
-                    {/*<div className="card-container">
-                        {P1.map((item, index) => (
-                            <div key={index} className="card" onClick={() => handleCardClick(item.image)}>
-                                <div className="container mt-3">
-                                    <img src={item.image} className="service-img card-img-top" alt={`Service ${index + 1}`} />
-                                </div>
+                    {/* <div className="card-container">
+                        {P7.map((item, index) => (
+                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                                <img src={item.image} alt={`Service ${index + 1}`} className="service-img card-img-top" />
                                 <div className="img-desc-cover">
-                                    <p className='img-desc-p'>{item.desc}</p>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         ))}
-                    </div>*/}
+                    </div> */}
                     <div className="upcoming-pro"><p className='up-p'>No Preview</p></div>
-
-                    {/* Modal to show enlarged image */}
-                    {selectedImage && (
-                        <div className="modal-overlay" onClick={closeModal}>
-                            <div className="modal-content">
-                                <span className="close-icon" onClick={closeModal}> <BiX /> </span>
-                                <img src={selectedImage} alt="Selected" className="modal-image" />
-                            </div>
-                        </div>
-                    )}
                 </CustomTabPanel>
+
                 <CustomTabPanel value={value} index={7}>
                     <h3>{projectDescriptions[7].name}</h3>
                     <p className="proj-desc">{projectDescriptions[7].description}
                     <p className='workstat'><span className='edu-percent'>TechStack :</span> <span className='work-style'>HTML</span> <span className='work-style'>CSS</span> <span className='work-style'>JS</span> <span className='work-style'>Bootstrap</span> <span className='work-style'>reactjs</span> <span className='work-style'>react native</span> </p>
                     </p>
-                    {/*<div className="card-container">
-                        {P1.map((item, index) => (
-                            <div key={index} className="card" onClick={() => handleCardClick(item.image)}>
-                                <div className="container mt-3">
-                                    <img src={item.image} className="service-img card-img-top" alt={`Service ${index + 1}`} />
-                                </div>
+                    {/* <div className="card-container">
+                        {P7.map((item, index) => (
+                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                                <img src={item.image} alt={`Service ${index + 1}`} className="service-img card-img-top" />
                                 <div className="img-desc-cover">
-                                    <p className='img-desc-p'>{item.desc}</p>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         ))}
-                    </div>*/}
+                    </div> */}
                     <div className="upcoming-pro"><p className='up-p'>No Preview</p></div>
-
-                    {/* Modal to show enlarged image */}
-                    {selectedImage && (
-                        <div className="modal-overlay" onClick={closeModal}>
-                            <div className="modal-content">
-                                <span className="close-icon" onClick={closeModal}> <BiX /> </span>
-                                <img src={selectedImage} alt="Selected" className="modal-image" />
-                            </div>
-                        </div>
-                    )}
                 </CustomTabPanel>
+
                 <CustomTabPanel value={value} index={8}>
                     <h3>{projectDescriptions[8].name}</h3>
                     <p className="proj-desc">{projectDescriptions[8].description}</p>
-                    {/*<div className="card-container">
-                        {P1.map((item, index) => (
-                            <div key={index} className="card" onClick={() => handleCardClick(item.image)}>
-                                <div className="container mt-3">
-                                    <img src={item.image} className="service-img card-img-top" alt={`Service ${index + 1}`} />
-                                </div>
+                    {/* <div className="card-container">
+                        {P7.map((item, index) => (
+                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                                <img src={item.image} alt={`Service ${index + 1}`} className="service-img card-img-top" />
                                 <div className="img-desc-cover">
-                                    <p className='img-desc-p'>{item.desc}</p>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         ))}
-                    </div>*/}
+                    </div> */}
                     <div className="upcoming-pro"><p className='up-p'>No Preview</p></div>
-
-                    {/* Modal to show enlarged image */}
-                    {selectedImage && (
-                        <div className="modal-overlay" onClick={closeModal}>
-                            <div className="modal-content">
-                                <span className="close-icon" onClick={closeModal}> <BiX /> </span>
-                                <img src={selectedImage} alt="Selected" className="modal-image" />
-                            </div>
-                        </div>
-                    )}
                 </CustomTabPanel>
+
                 <CustomTabPanel value={value} index={9}>
                     <h3>{projectDescriptions[9].name}</h3>
                     <p className="proj-desc">{projectDescriptions[9].description}
                     <p className='workstat'><span className='edu-percent'>TechStack :</span> <span className='work-style'><BiBlock /></span>  </p>
                     </p>
-                    {/*<div className="card-container">
-                        {P1.map((item, index) => (
-                            <div key={index} className="card" onClick={() => handleCardClick(item.image)}>
-                                <div className="container mt-3">
-                                    <img src={item.image} className="service-img card-img-top" alt={`Service ${index + 1}`} />
-                                </div>
+                    {/* <div className="card-container">
+                        {P7.map((item, index) => (
+                            <div key={index} className="card" onClick={() => handleCardClick(index)}>
+                                <img src={item.image} alt={`Service ${index + 1}`} className="service-img card-img-top" />
                                 <div className="img-desc-cover">
-                                    <p className='img-desc-p'>{item.desc}</p>
+                                    <p>{item.desc}</p>
                                 </div>
                             </div>
                         ))}
-                    </div>*/}
-                    <div className="upcoming-pro"><p className='up-p'>Upcoming...</p></div>
-
-                    {/* Modal to show enlarged image */}
-                    {selectedImage && (
-                        <div className="modal-overlay" onClick={closeModal}>
-                            <div className="modal-content">
-                                <span className="close-icon" onClick={closeModal}> <BiX /> </span>
-                                <img src={selectedImage} alt="Selected" className="modal-image" />
-                            </div>
-                        </div>
-                    )}
+                    </div> */}
+                    <div className="upcoming-pro"><p className='up-p'>No Preview</p></div>
                 </CustomTabPanel>
+
+                {/* Add more CustomTabPanels for other tabs */}
+
+                {/* Modal */}
+                {selectedImageIndex !== null && (
+                    <div className="modal-overlay" onClick={closeModal}>
+                        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                            <span className="close-icon" onClick={closeModal}>
+                                <BiX />
+                            </span>
+                            <button className="prev-btn" onClick={handlePrevImage}>
+                                <BiCaretLeftCircle />
+                            </button>
+                            <img src={currentImages[selectedImageIndex].image} alt="Selected" className="modal-image" />
+                            <button className="next-btn" onClick={handleNextImage}>
+                                <BiCaretRightCircle />
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+
             </Box>
         </div>
     );

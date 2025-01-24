@@ -1,0 +1,43 @@
+{
+        name: 'Online Outing & Leaving System',
+        description: 'The Online Outing & Leaving System is a platform designed to simplify the process of applying for and managing student outings and leave requests within a college. It provides a convenient interface for students to submit leave applications online, specifying their reasons and dates, while tracking the status of approvals. The system also streamlines the process for college administrators, allowing them to review, approve, or reject requests efficiently, with all records maintained digitally. Additionally, a separate section for the security team ensures that students leaving the campus are verified against approved leave applications, enhancing security. By centralizing the process, the system reduces paperwork and enhances communication, making it easier for students, administrators, and security personnel to handle operations effectively.'
+    },
+    {
+        name: 'Electrove',
+        description: 'Electrove is a technical feast organized by the ECE department, for which I developed a dedicated webpage. This site showcases all the technical and non-technical events featured in the fest, providing detailed information about each event. It also includes a user-friendly registration system, allowing participants to easily sign up for events they are interested in. The webpage aims to enhance engagement and streamline the registration process, making it easier for attendees to explore and participate in the various activities offered during the fest.'
+
+    },
+    {
+        name: 'Service Track',
+        description: 'Service Track is a comprehensive web application designed to streamline vehicle service management and ensure timely maintenance through an intuitive reminder system. With Service Track, users can effortlessly track service histories,schedule upcoming maintenance tasks, and receive automated reminders for service due dates, helping them maintain their vehicles in optimal condition. The platform offers a user-friendly interface accessible via web browsers, enabling convenient access from desktops, laptops, and mobile devices. Service Track aims to revolutionize vehicle maintenance practices, enhancing efficiency, reducing downtime, and prolonging the lifespan of vehicles.'
+
+    },
+    {
+        name: 'Scrabble',
+        description: 'The Scrabble Game is part of a broader initiative in the ELC (English Literary Club) aimed at encouraging students to enhance their English proficiency through interactive and fun activities. This webpage, which I designed, features three different games, each tailored to improve specific language skills. Scrabble, being one of the games, focuses on vocabulary building and word recognition, allowing students to challenge themselves in creating words from a set of letters. Each game on the platform has its own unique impact, helping students develop their language abilities in areas like spelling, grammar, and word usage. This project promotes engagement with English in an enjoyable way, contributing to students overall linguistic competence.'
+
+    },
+    {
+        name: 'Student Movie Box',
+        description: 'The Movie Download and Upload System is a student-led project that allows users to upload and download movies within the college community. It makes it easy to share and access a variety of films, while also enabling users to leave reviews and recommendations. This platform fosters a community of film lovers and enhances cultural engagement among students.'
+    },
+    {
+        name: 'TruckOlimit',
+        description: 'Truckolimit is an application designed to make it easier for heavy motor vehicle drivers to find return transport opportunities after delivering products, ensuring they don’t return to their home towns empty-handed. The platform connects drivers with exporters who need goods transported, providing a flexible system where exporters can share detailed information about their products and transportation needs. Both drivers and exporters can access nearby transport requirements and services, streamlining the process of finding available jobs. This approach boosts the productivity of the goods transportation sector, reduces downtime for drivers, and increases revenue for both parties involved.'
+
+
+    },
+    {
+        name: 'u can-grow ',
+        description: 'U Can-Grow is a mobile application designed to help students find and connect with peers who share similar interests in specific domains or tech stacks. The app simplifies the process of discovering relevant fields, offering roadmaps to guide users in building expertise in their chosen areas. It also encourages networking by allowing students to connect with others, form teams, and collaborate on projects. A real-time chat feature is integrated for seamless communication, making it easier to coordinate tasks and discussions. Additionally, users can post content and share information related to their domains, fostering a collaborative learning environment where students can grow both their skills and professional network.'
+
+
+    },
+    {
+        name: 'ExpanTrack',
+        description: "Can't be provided.",
+    },
+    {
+        name: 'Agriconnect',
+        description: 'A multilingual Android and web application enabling farmers to upload produce details using AI-based voice-to-text and Read a Loud features, with automated location-based navigation, and an ML-driven price prediction model. The integrated ML model compares seasonal and local market prices to provide accurate pricing suggestions and notifies farmers about high-demand crops in the market by allowing direct sales to consumers with an integrated payment gateway, bypassing intermediaries.'
+    }

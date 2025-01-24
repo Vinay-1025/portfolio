@@ -12,9 +12,9 @@ const Menu = () => {
             <div className="dashboard-content">
                 <Routes>
                     <Route path="/dashboard" element={<Progress />} />
-                    <Route path="/queries" element={<Contact />} />
-                    <Route path="/security" element={<Security />} />
-                    <Route path="/adminstration" element={<Administration />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/certifications" element={<Security />} />
+                    <Route path="/projects" element={<Administration />} />
                 </Routes>
             </div>
         </div>

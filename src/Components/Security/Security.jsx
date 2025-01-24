@@ -11,17 +11,28 @@ import JAVA from '../../assets/certi/Java_Basics.jpg';
 import JSJQ from '../../assets/certi/Javascript&Jquery.jpg';
 import MREACT from '../../assets/certi/Mastering_React.jpg';
 import REACT from '../../assets/certi/ReactJs.png';
-import { BiX } from 'react-icons/bi';
+import { BiX, BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 
 const Security = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const certifications = [HTML, CSS, BOOTSTRAP, JSJQ, FIGMA, CC, JAVA, MREACT, REACT, GENAI];
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-  const handleCardClick = (image) => {
-    setSelectedImage(image);
+  const handleCardClick = (index) => {
+    setSelectedImageIndex(index);
   };
 
   const closeModal = () => {
-    setSelectedImage(null);
+    setSelectedImageIndex(null);
+  };
+
+  const showNextImage = (e) => {
+    e.stopPropagation();
+    setSelectedImageIndex((prevIndex) => (prevIndex + 1) % certifications.length);
+  };
+
+  const showPreviousImage = (e) => {
+    e.stopPropagation();
+    setSelectedImageIndex((prevIndex) => (prevIndex - 1 + certifications.length) % certifications.length);
   };
 
   return (
@@ -29,9 +40,8 @@ const Security = () => {
       <ContentHeader title="Certifications" />
       <div className="certificate-container">
         <div className="card-container">
-          {/* Map through the certifications */}
-          {[HTML, CSS, BOOTSTRAP, JSJQ, FIGMA, CC, JAVA, MREACT, REACT, GENAI].map((image, index) => (
-            <div key={index} className="card" onClick={() => handleCardClick(image)}>
+          {certifications.map((image, index) => (
+            <div key={index} className="card" onClick={() => handleCardClick(index)}>
               <div className="container mt-3">
                 <img src={image} className="service-img card-img-top" alt={`Service ${index + 1}`} />
               </div>
@@ -40,12 +50,19 @@ const Security = () => {
         </div>
       </div>
 
-      {/* Modal to show enlarged image */}
-      {selectedImage && (
+      {selectedImageIndex !== null && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content">
-            <span className="close-icon" onClick={closeModal}> <BiX /> </span>
-            <img src={selectedImage} alt="Selected" className="modal-image" />
+            <span className="close-icon" onClick={closeModal}>
+              <BiX />
+            </span>
+            <button className="arrow-icon left-arrow" onClick={showPreviousImage}>
+              <BiChevronLeft />
+            </button>
+            <img src={certifications[selectedImageIndex]} alt="Selected" className="modal-image" />
+            <button className="arrow-icon right-arrow" onClick={showNextImage}>
+              <BiChevronRight />
+            </button>
           </div>
         </div>
       )}
