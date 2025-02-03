@@ -69,3 +69,43 @@
     overflow-y: scroll;
   }
 }
+
+
+
+.download-cont {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  border: 2px solid #0A7273;
+  border-radius: 20px;
+  padding-left: 8px;
+  color: #0A7273;
+  font-weight: 600;
+  float: right;
+  cursor: pointer;
+  font-size: 12px;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 10px #000000ac;
+}
+
+.download-pdf {
+  display: flex;
+  align-items: center;
+  background: #570ade;
+  color: #fff;
+  padding: 3px;
+  font-size: 18px;
+  border-radius: 100%;
+}
+
+.download-cont:hover {
+  background: #570ade;
+  color: #fff;
+  box-shadow: 0px 0px 20px #0A7273;
+}
+
+@media (max-width: 600px) {
+  .download-cont {
+    font-size: 10px;
+  }
+}

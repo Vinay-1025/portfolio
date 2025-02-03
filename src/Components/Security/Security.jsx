@@ -11,10 +11,11 @@ import JAVA from '../../assets/certi/Java_Basics.jpg';
 import JSJQ from '../../assets/certi/Javascript&Jquery.jpg';
 import MREACT from '../../assets/certi/Mastering_React.jpg';
 import REACT from '../../assets/certi/ReactJs.png';
+import BDLABS from '../../assets/certi/BDlabs.png'
 import { BiX, BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 
 const Security = () => {
-  const certifications = [HTML, CSS, BOOTSTRAP, JSJQ, FIGMA, CC, JAVA, MREACT, REACT, GENAI];
+  const certifications = [BDLABS, HTML, CSS, BOOTSTRAP, JSJQ, FIGMA, CC, JAVA, MREACT, REACT, GENAI];
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
   const handleCardClick = (index) => {

@@ -371,7 +371,6 @@
 .edu-percent {
     color: #c33000;
     font-weight: 600;
-    
 }
 
 .address {
@@ -409,3 +408,7 @@
     }
 }
 
+.sub-heading {
+    font-weight: 800;
+    color: #000000be;
+}

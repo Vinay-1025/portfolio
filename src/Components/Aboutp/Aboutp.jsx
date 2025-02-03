@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Aboutp.css';
-import { BiArrowToBottom, BiBot, BiCloudDownload, BiReceipt } from 'react-icons/bi';
+import { BiArrowToBottom, BiBot, BiCloudDownload, BiDownArrowAlt, BiReceipt } from 'react-icons/bi';
 import ProfileImage from '../../assets/G.Vinay_Sriram.jpeg';
 import ContentHeader from '../ContentHeader/ContentHeader';
 import { useNavigate } from 'react-router-dom';
+import { MdOutlineDownloadForOffline } from "react-icons/md";
+import { saveAs } from 'file-saver';
+import Resume from "../../assets/VinaySriram-Gavara.pdf";
 
 const roles = ["UI Development", "UI/UX", "Linux", "front end", "free leancer"];
 
@@ -21,7 +24,7 @@ const Aboutp = () => {
 
 
     const HandleProjectNavigation = () => {
-        navigate('/menu/adminstration');
+        navigate('/menu/projects');
     }
 
     const handleScrollToSkills = () => {
@@ -30,6 +33,12 @@ const Aboutp = () => {
             element.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    const handleResumeDownload = () => {
+        const pdfUrl = Resume;
+        const pdfName = 'VinaySriram-Gavara-Resume.pdf';
+        saveAs(pdfUrl, pdfName);
+    }
 
 
     return (
@@ -50,8 +59,8 @@ const Aboutp = () => {
                 {/* Right Section */}
                 <div className="right-section">
                     <div className="description-text">
-                        <p>I'm <span className='edu-percent'>Gavara Vinay Sriram</span> , a passionate <b>Frontend Developer</b>. I have hands-on experience with HTML, CSS, JavaScript, Bootstrap, and ReactJS.
-                        I thrive on creating clean, engaging, and user-friendly interfaces. Recently, I worked on <b>real-time</b> projects focused on <span className='edu-percent'>dental lab automation</span>, which honed my ability to develop practical solutions and enhance user experience.
+                        <p>I'm <span className='edu-percent'>Gavara Vinay Sriram</span> , a passionate <span className="sub-heading"> Frontend Developer</span>. I have hands-on experience with HTML, CSS, JavaScript, Bootstrap, and ReactJS.
+                        I thrive on creating clean, engaging, and user-friendly interfaces. Recently, I worked on <span className="sub-heading">real-time</span> projects focused on <span className='edu-percent'>dental lab automation</span>, which honed my ability to develop practical solutions and enhance user experience.
                         I'm always eager to learn and explore new technologies to improve my skills further.
                         </p>
                         <p className='address'><span className='edu-percent'>Address :</span> Palivela-Kotameraka Kothapeta Mandal Konasemma District - 533229</p>
@@ -68,6 +77,7 @@ const Aboutp = () => {
                 <div className="skills-title">
                     <h2>resume</h2>
                 </div>
+                <p className='download-cont' onClick={handleResumeDownload}>Download resume<p className='download-pdf'><MdOutlineDownloadForOffline /></p></p>
                 <div className="resume page">
 
                     <div className="resume-row">
@@ -192,19 +202,19 @@ const Aboutp = () => {
                                 </div>
 
                                 <div className="progress-detail">
+                                    <div className="progress-name">React</div>
+                                    <div className="progress-percent">70%</div>
+                                </div>
+                                <div className="progress-bar">
+                                    <div className="progress" style={{width: '70%'}}></div>
+                                </div>
+
+                                <div className="progress-detail">
                                     <div className="progress-name">Python</div>
                                     <div className="progress-percent">80%</div>
                                 </div>
                                 <div className="progress-bar">
                                     <div className="progress" style={{width: '80%'}}></div>
-                                </div>
-
-                                <div className="progress-detail">
-                                    <div className="progress-name">React/Redux</div>
-                                    <div className="progress-percent">70%</div>
-                                </div>
-                                <div className="progress-bar">
-                                    <div className="progress" style={{width: '70%'}}></div>
                                 </div>
 
                                 <div className="progress-detail">
@@ -221,6 +231,22 @@ const Aboutp = () => {
                                 </div>
                                 <div className="progress-bar">
                                     <div className="progress" style={{width: '95%'}}></div>
+                                </div>
+
+                                <div className="progress-detail">
+                                    <div className="progress-name">React Native</div>
+                                    <div className="progress-percent">55%</div>
+                                </div>
+                                <div className="progress-bar">
+                                    <div className="progress" style={{width: '55%'}}></div>
+                                </div>
+
+                                <div className="progress-detail">
+                                    <div className="progress-name">AWS</div>
+                                    <div className="progress-percent">50%</div>
+                                </div>
+                                <div className="progress-bar">
+                                    <div className="progress" style={{width: '50%'}}></div>
                                 </div>
                             </div>
                             

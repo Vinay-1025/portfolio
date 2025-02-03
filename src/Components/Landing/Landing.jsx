@@ -28,7 +28,7 @@ const Loader = () => {
                 <div className="ring"></div>
                 <div className="ring"></div>
             </div>
-            <div className="welcome-text">MA MA MIA</div>
+            <div className="welcome-text">Oh La!</div>
         </div>
     );
 };
